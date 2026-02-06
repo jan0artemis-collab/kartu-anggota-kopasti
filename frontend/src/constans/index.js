@@ -1,5 +1,5 @@
 // API Configuration
-export const API_BASE_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+export const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbx5jXv2kE_w6lvryNWJixZ4AUvj9FxeU_nUV9Mk1RqoEGugmOKFhMAewaYISAYivirXRA/exec';
 export const SPREADSHEET_ID = '1Qz8V11JuwdI32oOmMxbyizRulFKKCJqB2njC0FW-xIk';
 
 // Pagination
