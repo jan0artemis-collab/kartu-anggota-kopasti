@@ -1,5 +1,5 @@
 // Configure your Apps Script Web App URL here
-export const API_BASE_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+export const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbx5jXv2kE_w6lvryNWJixZ4AUvj9FxeU_nUV9Mk1RqoEGugmOKFhMAewaYISAYivirXRA/exec';
 
 export const api = {
   async getMembers(params = {}) {
