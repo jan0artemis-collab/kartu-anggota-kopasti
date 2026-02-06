@@ -1,0 +1,259 @@
+{
+  "members": [
+    {
+      "id": "a1b2c3d4",
+      "nomor_induk": "2024001",
+      "nama": "Budi Santoso",
+      "jabatan": "Ketua Umum",
+      "satuan_terminal": "Terminal Purwokerto",
+      "angkatan": "2024",
+      "kedisiplinan": 95,
+      "kepemimpinan": 88,
+      "kerajinan": 92,
+      "public_speaking": 85,
+      "teamwork": 90,
+      "teknis_kopasti": 87,
+      "pengambilan_keputusan": 89,
+      "kreativitas": 91,
+      "photo_url": "https://i.pravatar.cc/150?img=12",
+      "_sheetRow": 2,
+      "criteria_list": [
+        {
+          "key": "kedisiplinan",
+          "label": "Kedisiplinan",
+          "value": 95,
+          "sheetRow": 2,
+          "sheetCol": "G",
+          "cellRef": "Sheet1!G2"
+        },
+        {
+          "key": "kepemimpinan",
+          "label": "Kepemimpinan",
+          "value": 88,
+          "sheetRow": 2,
+          "sheetCol": "H",
+          "cellRef": "Sheet1!H2"
+        },
+        {
+          "key": "kerajinan",
+          "label": "Kerajinan",
+          "value": 92,
+          "sheetRow": 2,
+          "sheetCol": "I",
+          "cellRef": "Sheet1!I2"
+        },
+        {
+          "key": "public_speaking",
+          "label": "Public Speaking",
+          "value": 85,
+          "sheetRow": 2,
+          "sheetCol": "J",
+          "cellRef": "Sheet1!J2"
+        },
+        {
+          "key": "teamwork",
+          "label": "Teamwork",
+          "value": 90,
+          "sheetRow": 2,
+          "sheetCol": "K",
+          "cellRef": "Sheet1!K2"
+        },
+        {
+          "key": "teknis_kopasti",
+          "label": "Teknis KOPASTI",
+          "value": 87,
+          "sheetRow": 2,
+          "sheetCol": "L",
+          "cellRef": "Sheet1!L2"
+        },
+        {
+          "key": "pengambilan_keputusan",
+          "label": "Pengambilan Keputusan",
+          "value": 89,
+          "sheetRow": 2,
+          "sheetCol": "M",
+          "cellRef": "Sheet1!M2"
+        },
+        {
+          "key": "kreativitas",
+          "label": "Kreativitas",
+          "value": 91,
+          "sheetRow": 2,
+          "sheetCol": "N",
+          "cellRef": "Sheet1!N2"
+        }
+      ],
+      "average_score": 90
+    },
+    {
+      "id": "e5f6g7h8",
+      "nomor_induk": "2024002",
+      "nama": "Siti Nurhaliza",
+      "jabatan": "Wakil Ketua",
+      "satuan_terminal": "Terminal Banjarnegara",
+      "angkatan": "2024",
+      "kedisiplinan": 90,
+      "kepemimpinan": 92,
+      "kerajinan": 88,
+      "public_speaking": 90,
+      "teamwork": 93,
+      "teknis_kopasti": 85,
+      "pengambilan_keputusan": 87,
+      "kreativitas": 89,
+      "photo_url": "https://i.pravatar.cc/150?img=5",
+      "_sheetRow": 3,
+      "criteria_list": [
+        {
+          "key": "kedisiplinan",
+          "label": "Kedisiplinan",
+          "value": 90,
+          "sheetRow": 3,
+          "sheetCol": "G",
+          "cellRef": "Sheet1!G3"
+        },
+        {
+          "key": "kepemimpinan",
+          "label": "Kepemimpinan",
+          "value": 92,
+          "sheetRow": 3,
+          "sheetCol": "H",
+          "cellRef": "Sheet1!H3"
+        },
+        {
+          "key": "kerajinan",
+          "label": "Kerajinan",
+          "value": 88,
+          "sheetRow": 3,
+          "sheetCol": "I",
+          "cellRef": "Sheet1!I3"
+        },
+        {
+          "key": "public_speaking",
+          "label": "Public Speaking",
+          "value": 90,
+          "sheetRow": 3,
+          "sheetCol": "J",
+          "cellRef": "Sheet1!J3"
+        },
+        {
+          "key": "teamwork",
+          "label": "Teamwork",
+          "value": 93,
+          "sheetRow": 3,
+          "sheetCol": "K",
+          "cellRef": "Sheet1!K3"
+        },
+        {
+          "key": "teknis_kopasti",
+          "label": "Teknis KOPASTI",
+          "value": 85,
+          "sheetRow": 3,
+          "sheetCol": "L",
+          "cellRef": "Sheet1!L3"
+        },
+        {
+          "key": "pengambilan_keputusan",
+          "label": "Pengambilan Keputusan",
+          "value": 87,
+          "sheetRow": 3,
+          "sheetCol": "M",
+          "cellRef": "Sheet1!M3"
+        },
+        {
+          "key": "kreativitas",
+          "label": "Kreativitas",
+          "value": 89,
+          "sheetRow": 3,
+          "sheetCol": "N",
+          "cellRef": "Sheet1!N3"
+        }
+      ],
+      "average_score": 89
+    },
+    {
+      "id": "i9j0k1l2",
+      "nomor_induk": "2023015",
+      "nama": "Ahmad Dahlan",
+      "jabatan": "Sekretaris",
+      "satuan_terminal": "Terminal Purbalingga",
+      "angkatan": "2023",
+      "kedisiplinan": 85,
+      "kepemimpinan": 80,
+      "kerajinan": 90,
+      "public_speaking": 78,
+      "teamwork": 88,
+      "teknis_kopasti": 82,
+      "pengambilan_keputusan": 84,
+      "kreativitas": 86,
+      "photo_url": "https://i.pravatar.cc/150?img=33",
+      "_sheetRow": 4,
+      "criteria_list": [
+        {
+          "key": "kedisiplinan",
+          "label": "Kedisiplinan",
+          "value": 85,
+          "sheetRow": 4,
+          "sheetCol": "G",
+          "cellRef": "Sheet1!G4"
+        },
+        {
+          "key": "kepemimpinan",
+          "label": "Kepemimpinan",
+          "value": 80,
+          "sheetRow": 4,
+          "sheetCol": "H",
+          "cellRef": "Sheet1!H4"
+        },
+        {
+          "key": "kerajinan",
+          "label": "Kerajinan",
+          "value": 90,
+          "sheetRow": 4,
+          "sheetCol": "I",
+          "cellRef": "Sheet1!I4"
+        },
+        {
+          "key": "public_speaking",
+          "label": "Public Speaking",
+          "value": 78,
+          "sheetRow": 4,
+          "sheetCol": "J",
+          "cellRef": "Sheet1!J4"
+        },
+        {
+          "key": "teamwork",
+          "label": "Teamwork",
+          "value": 88,
+          "sheetRow": 4,
+          "sheetCol": "K",
+          "cellRef": "Sheet1!K4"
+        },
+        {
+          "key": "teknis_kopasti",
+          "label": "Teknis KOPASTI",
+          "value": 82,
+          "sheetRow": 4,
+          "sheetCol": "L",
+          "cellRef": "Sheet1!L4"
+        },
+        {
+          "key": "pengambilan_keputusan",
+          "label": "Pengambilan Keputusan",
+          "value": 84,
+          "sheetRow": 4,
+          "sheetCol": "M",
+          "cellRef": "Sheet1!M4"
+        },
+        {
+          "key": "kreativitas",
+          "label": "Kreativitas",
+          "value": 86,
+          "sheetRow": 4,
+          "sheetCol": "N",
+          "cellRef": "Sheet1!N4"
+        }
+      ],
+      "average_score": 84
+    }
+  ]
+}
