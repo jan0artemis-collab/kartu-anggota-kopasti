@@ -1,53 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { api } from '../utils/api';
+import { useMember } from '../hooks/useMembers';
 import MemberCard from '../components/MemberCard';
 import RadarChart from '../components/RadarChart';
 import CriteriaDetailModal from '../components/CriteriaDetailModal';
+import { LoadingScreen, SkeletonMemberCard } from '../components/Loading';
 import { getPerformanceLevel, getPerformanceColor } from '../utils/performance';
-
-const SPREADSHEET_ID = '1Qz8V11JuwdI32oOmMxbyizRulFKKCJqB2njC0FW-xIk';
+import { SPREADSHEET_ID } from '../constants';
 
 const MemberPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [member, setMember] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { member, loading, error } = useMember(id);
   const [selectedCriterion, setSelectedCriterion] = useState(null);
 
-  useEffect(() => {
-    fetchMember();
-  }, [id]);
-
-  const fetchMember = async () => {
-    try {
-      setLoading(true);
-      const data = await api.getMemberById(id);
-      if (!data || !data.id) {
-        setError('Anggota tidak ditemukan');
-      } else {
-        setMember(data);
-      }
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSegmentClick = (criterion) => {
+  const handleSegmentClick = useCallback((criterion) => {
     setSelectedCriterion(criterion);
-  };
+  }, []);
 
-  const handlePrint = () => {
+  const handlePrint = useCallback(() => {
     window.print();
-  };
+  }, []);
+
+  const handleBack = useCallback(() => {
+    navigate('/');
+  }, [navigate]);
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex justify-center items-center">
-        <div className="text-gray-600 dark:text-gray-400">Memuat data...</div>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <header className="bg-gradient-to-r from-tni-green to-tni-green/80 text-white shadow-lg no-print">
+          <div className="container mx-auto px-4 py-4">
+            <button
+              onClick={handleBack}
+              className="flex items-center gap-2 hover:opacity-80 transition"
+            >
+              <span className="text-xl">←</span>
+              <span className="font-semibold">Kembali</span>
+            </button>
+          </div>
+        </header>
+        <main className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <SkeletonMemberCard />
+            <SkeletonMemberCard />
+          </div>
+        </main>
       </div>
     );
   }
@@ -55,11 +53,19 @@ const MemberPage = () => {
   if (error || !member) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex justify-center items-center">
-        <div className="text-center">
-          <div className="text-red-500 mb-4">{error || 'Data tidak ditemukan'}</div>
+        <div className="text-center max-w-md p-8">
+          <svg className="w-20 h-20 mx-auto text-red-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            Data Tidak Ditemukan
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            {error || 'Anggota dengan ID tersebut tidak ditemukan di sistem.'}
+          </p>
           <button
-            onClick={() => navigate('/')}
-            className="bg-tni-green text-white px-6 py-2 rounded hover:bg-tni-green/90"
+            onClick={handleBack}
+            className="bg-tni-green text-white px-6 py-2 rounded hover:bg-tni-green/90 transition"
           >
             Kembali ke Beranda
           </button>
@@ -77,17 +83,24 @@ const MemberPage = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <button
-              onClick={() => navigate('/')}
+              onClick={handleBack}
               className="flex items-center gap-2 hover:opacity-80 transition"
+              aria-label="Kembali ke beranda"
             >
-              <span className="text-xl">←</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
               <span className="font-semibold">Kembali</span>
             </button>
             <button
               onClick={handlePrint}
-              className="bg-tni-gold hover:bg-tni-gold/90 text-tni-green font-semibold px-4 py-2 rounded transition"
+              className="bg-tni-gold hover:bg-tni-gold/90 text-tni-green font-semibold px-4 py-2 rounded transition flex items-center gap-2"
+              aria-label="Cetak kartu"
             >
-              🖨️ Cetak Kartu
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              Cetak Kartu
             </button>
           </div>
         </div>
@@ -128,11 +141,21 @@ const MemberPage = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 dark:border-gray-700">
-                  <th className="text-left py-3 px-4 text-gray-700 dark:text-gray-300">Kriteria</th>
-                  <th className="text-center py-3 px-4 text-gray-700 dark:text-gray-300">Skor</th>
-                  <th className="text-center py-3 px-4 text-gray-700 dark:text-gray-300">Tingkat</th>
-                  <th className="text-center py-3 px-4 text-gray-700 dark:text-gray-300">Referensi</th>
-                  <th className="text-center py-3 px-4 text-gray-700 dark:text-gray-300">Aksi</th>
+                  <th className="text-left py-3 px-4 text-gray-700 dark:text-gray-300 font-semibold">
+                    Kriteria
+                  </th>
+                  <th className="text-center py-3 px-4 text-gray-700 dark:text-gray-300 font-semibold">
+                    Skor
+                  </th>
+                  <th className="text-center py-3 px-4 text-gray-700 dark:text-gray-300 font-semibold">
+                    Tingkat
+                  </th>
+                  <th className="text-center py-3 px-4 text-gray-700 dark:text-gray-300 font-semibold">
+                    Referensi
+                  </th>
+                  <th className="text-center py-3 px-4 text-gray-700 dark:text-gray-300 font-semibold">
+                    Aksi
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -150,7 +173,7 @@ const MemberPage = () => {
                       </span>
                     </td>
                     <td className="py-3 px-4 text-center">
-                      <span className={`inline-block px-2 py-1 rounded text-xs font-semibold ${getPerformanceColor(criterion.value)}`}>
+                      <span className={`inline-block px-2 py-1 rounded text-xs font-semibold ${getPerformanceColor(criterion.value)} bg-opacity-10`}>
                         {getPerformanceLevel(criterion.value)}
                       </span>
                     </td>
@@ -162,7 +185,8 @@ const MemberPage = () => {
                     <td className="py-3 px-4 text-center">
                       <button
                         onClick={() => handleSegmentClick(criterion)}
-                        className="text-tni-green hover:text-tni-gold font-semibold text-sm"
+                        className="text-tni-green hover:text-tni-gold font-semibold text-sm transition"
+                        aria-label={`Detail ${criterion.label}`}
                       >
                         Detail →
                       </button>
